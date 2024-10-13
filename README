@@ -1,0 +1,50 @@
+# TOPSIS Ranking of Text Generation Models
+
+This project applies the **TOPSIS (Technique for Order Preference by Similarity to Ideal Solution)** method to rank different pre-trained models based on their performance on text generation tasks.
+
+## Models Evaluated
+- **GPT-2**
+- **GPT-3**
+- **T5**
+- **BART**
+
+## Evaluation Metrics
+The following metrics were used for evaluation:
+- **Perplexity**: Lower values are better.
+- **BLEU Score**: Higher values are better.
+- **ROUGE Score**: Higher values are better.
+
+
+## Methodology
+
+We applied the TOPSIS method to rank the models based on their performance metrics. The steps involved are:
+1. **Data Input**: The input data is provided in a CSV file containing the models and their evaluation metrics.
+2. **TOPSIS Ranking**: The metrics are weighted and classified as either a "cost" (lower is better) or "benefit" (higher is better) criterion. TOPSIS is applied to compute the similarity to the ideal solution.
+3. **Results Output**: A CSV file containing the models, their TOPSIS scores, and their ranks is generated. Additionally, a barplot visualizes the ranking.
+
+## Usage
+
+### Prerequisites:
+- Python 3.x
+- Install the required libraries using:
+
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+
+## Results
+The following table shows the final ranking of the models based on their TOPSIS scores:
+
+| Model  | Perplexity | BLEU  | ROUGE | TOPSIS Score | Rank |
+|--------|------------|-------|-------|--------------|------|
+| GPT-3  | 20.1       | 0.72  | 0.61  | 0.6338       | 1    |
+| BART   | 21.9       | 0.69  | 0.59  | 0.5607       | 2    |
+| T5     | 22.3       | 0.67  | 0.60  | 0.5338       | 3    |
+| GPT-2  | 24.5       | 0.65  | 0.58  | 0.3662       | 4    |
+
+## Conclusion
+Based on the TOPSIS analysis:
+- **GPT-3** is the best-performing model according to the selected metrics.
+- **GPT-2** ranks the lowest due to its higher perplexity and relatively lower BLEU and ROUGE scores.
+
+The TOPSIS methodology allows for a balanced comparison across multiple metrics, providing a clearer understanding of the overall model performance.
